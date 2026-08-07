@@ -11,7 +11,7 @@ class Solution {
             currentAltitude  +=altitudegain;
 
             // ab max value niklana hai b/w currentAltitude and highestAltitude mein;
-
+            // store krna hai  highestAltitude;
             highestAltitude = Math.max(highestAltitude,currentAltitude);
         }
         return highestAltitude;
