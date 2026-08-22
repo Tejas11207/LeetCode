@@ -102,6 +102,7 @@ class Solution {
             // Left half is sorted
             else if (nums[s] <= nums[mid]) {
 
+                    // left me search krne ki condition
                 if (nums[s] <= target && target < nums[mid]) {
                     e = mid - 1;
                 }
@@ -113,6 +114,8 @@ class Solution {
             // Right half is sorted
             else {
 
+                // right me solve krne ki condition 
+                
                 if (nums[mid] < target && target <= nums[e]) {
                     s = mid + 1;
                 }
