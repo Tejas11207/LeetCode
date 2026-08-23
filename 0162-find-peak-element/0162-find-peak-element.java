@@ -43,6 +43,7 @@ class Solution {
         int mid = s+(e-s)/2;
 
         if(nums[mid]>=nums[mid+1]){
+            // yaha e = mid -1 isliye nhi kiya kyuki humko dono index same rakhne thee
             e= mid ;
         }
         else {
