@@ -26,22 +26,56 @@
 
 class Solution {
 
+        public ListNode solve(ListNode prev,ListNode curr){
+
+            // base case ;
+
+            if(curr == null){
+                return prev;
+
+            }
+
+            // ek case hum solve krenge baki recursion samabal le ga 
+            ListNode forward = curr.next;
+
+            curr.next = prev;
+
+            // ek ek step forward 
+
+            prev= curr;
+            curr= forward;
+
+            // recursiove call 
+
+            ListNode ans = solve(prev,curr);
+
+            return ans ; 
+        }
+
          public ListNode reverseList(ListNode head)
          {
+             // recurvice method
 
-            ListNode  prev = null;
-            ListNode  curr = head;
+             ListNode prev = null;
 
-            while(curr !=null){
+             ListNode curr  = head;
 
-                ListNode forward = curr.next;
+             ListNode ans = solve(prev,curr) ;
+             return ans ;
+            
+            // ListNode  prev = null;
+            // ListNode  curr = head;
 
-                curr.next = prev;
-                prev= curr;
-                curr= forward;
+            // while(curr !=null){
 
-            } 
-            return prev;
+            //     ListNode forward = curr.next;
+
+            //     curr.next = prev;
+            //     prev= curr;
+            //     curr= forward;
+
+            // } 
+            // return prev;
          }
 
 }
