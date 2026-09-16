@@ -11,32 +11,36 @@
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         
-        if(head == null ){
+        // base case 
+        if(head == null ) // pehla case linked List khali nhi hona chaahiyee 
+        {
             return head ;
 
         }
-        if( head.next == null){
+        if( head.next == null) // linkList me single node nhhi hona chahiye 
+        {
             return head ;
 
         }
 
-        //>1 case aayega 
-
-
-        ListNode curr = head.next;
-        ListNode prev = head;
+        //>1  node case aayega
+        ListNode curr = head.next; // 2 pointer aassing krliyaa 
+        ListNode prev = head;      
 
         while(curr!=null){
             
             if(prev.val != curr.val){
 
-                prev = prev.next;
+                // value not equal hain toh aagye badhaoo 
+                prev = prev.next;  
                 curr = curr.next ;
 
             }
             else {
 
                 // prev == curr 
+                // if equal hai prev.next = curr.next link change kro
+
 
                 prev.next  = curr.next ;
                 curr = curr.next ;
@@ -46,6 +50,7 @@ class Solution {
             }
 
         }
+        // sabb hojayee toh return head 
         return head; 
 
     }
