@@ -38,7 +38,7 @@ class Solution {
 
             }
             // replace the write.val  to sum value ... without creating the actual  new node 
-            //inplace injection
+            //inplace insertion
               write.val = sum ;
 
             // change the link 
@@ -46,10 +46,12 @@ class Solution {
               write.next = read.next;
 
               // read  ko aaage kro 
-              read = read.next;
+              read = read.next;  // 0 postion pe tha change kr ke 4 node pe lana 
 
                 // write ki positon change kro 
-              write = write .next;
+              write = write .next; // eg .. 5 sum allready created then waps se  sum node chahiyue
+
+              // baki notes me 
 
 
 
