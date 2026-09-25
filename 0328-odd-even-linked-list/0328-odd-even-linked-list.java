@@ -11,6 +11,8 @@
 class Solution {
     public ListNode oddEvenList(ListNode head) {
 
+            //mujhe node ko re arrange krna hainnn  in terms of there  odd even condtion
+
         // pehle base case handel kr diyaa 
         if(head ==null){
             return head;
@@ -31,6 +33,9 @@ class Solution {
         ListNode evenTail = head.next;
 
         //while(conditions  even tail  mera null pe hi aaye gaa .... even tail.next me null ka add store)
+
+        // eventail.next hain yee oddTail ke condition hain jo ki humne loop me change ki hai but 
+        // code fattt naa isliye humne eventail.next == oddTail ka adddr . hain where humko oddtail itration ke null pe toh nhi voh bateyega
         while(evenTail!=null && evenTail.next !=null){
 
             oddTail.next = evenTail.next;   // linkchange kiye 
