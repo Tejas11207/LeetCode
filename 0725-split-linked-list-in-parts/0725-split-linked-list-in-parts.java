@@ -11,45 +11,72 @@
 class Solution {
     public ListNode[] splitListToParts(ListNode head, int k) {
 
-        //create the array of list  node pointers to store k parts 
-        ListNode [] parts = new ListNode[k];
+        // ans ko array me return krna hain toh bss voh krna hain
 
-        // calculate the length of the linkedList
+        ListNode[] ans = new ListNode[k];
 
+        // find out the length
+        ListNode temp = head;
         int len = 0;
-        ListNode node = head ;
 
-        while(node != null){
-            len++;
-            node = node.next;
+        while(temp != null){
+            len ++;
+            temp = temp.next ;
 
         }
-        // calulate the min
-        int n = len/k ;
-        int r= len%k;
 
-        // reset the pointer for the beginning of the linkedList
-        node = head;
+        //constrain 
+        // which is given in the question 
+        //like len/k for base case or sublit
+        //
+        // len % k  for reamaning sublist 
+        int baseSize = (len / k);
+        int extraNode = (len % k);
+
+        // main logic 
+
         ListNode prev = null;
+        ListNode curr = head;
+        
+        for(int part = 0 ; part < k ;part ++){
+            // dimaag lagne vala point 
+            if(curr == null){
+                // to mere pass kuch hain hie nhi 
+                // main null ko hie store krdunga 
+                ans[part] = curr ;
+                continue ;
+            }
 
-        //loop
-        for(int i =0;i<k  && node !=null;i++,r--){
+            // insert curr into array 
+            ans[part] = curr;
 
-            //store the current node
-            parts[i] = node;
+            // find width of the current sublist
+            int  width = baseSize + (extraNode >0 ? 1 : 0);
 
-            for(int j = 0;j<n +(r>0 ?1:0);j++){
-                prev=node;
-                node = node.next;
+            // extraNode ko decrement kro 
+            extraNode --;
+
+            
+            for(int i = 1 ; i<=width ; i++){
+                prev = curr;
+                curr= curr.next ;
 
             }
 
-            if(prev!=null){
-                prev.next= null;
-            }
+            prev.next = null;
+            // now we will move to new itration 
+            prev = null;
+
+
+
+
+
         }
-        // return the array of k part 
-        return parts ;
 
+        return ans;
+
+
+
+        
     }
 }
