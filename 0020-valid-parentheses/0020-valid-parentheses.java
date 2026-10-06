@@ -1,62 +1,64 @@
-// class Solution {
-//     public boolean isValid(String s) {
-        
-//         Stack<Character> stack = new Stack<>();
-
-//         for(char ch :s.toCharArray()){
-
-//             if(ch ==' (' || ch =='[' || ch=='{'){
-
-//                 Stack.push(ch);
-
-//             }
-//             else{
-//                 if(stack.isEmpty()){
-//                     return false ;
-
-//                 }
-//                 char Top = stack.pop();
-//                 if(ch == ')' && top !='('){
-//                     return false ;
-//                 }
-
-//                 if(ch == ']' && top !='['){
-//                     return false;
-//                 }
-//                if(ch =='}' && top !='{'){
-//                 return false ;
-//                }
-                
-
-                
-//             }
-//         }
-//         return stack.isEmpty();
-//     }
-// }
-
 class Solution {
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
-        for (char ch : s.toCharArray()) {
-            if (ch == '(' || ch == '[' || ch == '{') {
-                stack.push(ch);
-            } else {
-                if (stack.isEmpty()) {
-                    return false;
+
+        Deque<Character> st = new ArrayDeque<>();
+
+        for(char ch : s.toCharArray()){
+
+            // if this is a open bracket;
+
+            // stack me daal diya hain 
+
+            if(ch =='(' || ch =='[' || ch=='{') {
+                st.push(ch);
+
+            }
+            else{
+                // if ch is a cloasing bracket
+                //we are going to check stack ka  top 
+                // but best practise is to check first whether stack is empty of not 
+
+                if(st.isEmpty()){
+                    return false ;
+
                 }
-                char top = stack.pop();
-                if (ch == ')' && top != '(') {
-                    return false;
+                if(ch ==')' && st.peek() !='('){
+
+                
+                //no match
+                return false ;
                 }
-                if (ch == ']' && top != '[') {
-                    return false;
+                else if(ch ==']' && st.peek() != '['){
+                    //no match
+                    return false ;
+
                 }
-                if (ch == '}' && top != '{') {
-                    return false;
+                else if(ch =='}' && st.peek() != '{'){
+                    //no match 
+                    return false ;
+
                 }
+                   
+                    else {
+                        //match -> cancel out -> stack ko pop kro 
+                        st.pop();
+
+                    }
+                
+
+
             }
         }
-        return stack.isEmpty();
+        
+        // if stack is empty , then iska matlb valid expression tha , thats why bracket sb cancel out hogaye 
+
+        if(st.isEmpty()){
+            return true ;
+        } 
+        else {
+            return false ;
+
+        }
+        
     }
 }
