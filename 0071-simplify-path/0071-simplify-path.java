@@ -1,23 +1,26 @@
 // class Solution {
 //     public String simplifyPath(String path) {
 
-//         Deque <String> st = new ArrayDeque<>();
-
+//         Deque <String> st = new ArrayDeque<>(); // stack create 
+  
 //         String[] parts = path.split("/"
-//         );
+//         );     // create the split path // split kroo whole the  o/p ko 
 
-//         for(String part :parts){
+//         for(String part :parts){ // for each use 
 
+                // igonore hone vale part 
 //             if(part.isEmpty()){
 //                 //ignore 
 //                 continue;
 
 //             }
+
 //             if(part.equals(" . ") && st.isEmpty()){
 //                 //ignore 
 //                 continue;
 
 //             }
+
 //             if(part.equals("..") && st.isEmpty()){
 //                 //ignore 
 
@@ -26,7 +29,8 @@
 
 //             }
 
-//             if(part.equals("..") && !st.isEmpty()){
+                // back directory 
+//            ( !st.isEmpty()) &&  if(part.equals("..")){
 //                 st.pop();
 
 //             }
