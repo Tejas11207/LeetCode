@@ -65,28 +65,37 @@
 // }
 
 class Solution {
-    public int minSwaps(String s) {
-        int count =0;
-        int stackSize = 0;
+    // minmum no of swaps req to make s string balne 
 
+
+    public int minSwaps(String s) {
+        int count =0; //
+        int stackSize = 0;
+        //actully the stack is not created  
         for(int i = 0; i<s.length() ; i++){
             if(s.charAt(i)=='['){
+                // if bracket is match then inc size of it 
 
                 stackSize++;
 
             }
             else if(stackSize ==0){
+                // and count 
                 count ++;
 
             }
             else {
+                // else decc
                 stackSize --;
 
             }
         }
         
-        return (count +1)/2;
-        
+        // even caase handel
+
+        return (count +1)/2; // basically even length is given 
+
+
 
     }
 }
