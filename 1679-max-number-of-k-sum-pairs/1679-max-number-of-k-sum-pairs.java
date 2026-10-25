@@ -5,7 +5,10 @@ class Solution {
 
         Arrays.sort(nums);
 
-        int count = 0;
+        int count = 0; //isko sort krdiya isliye mujhe  bade element piche hie milenge 
+
+        // sum me essay hogjayegga 
+
 
         int i = 0;
         int j = nums.length-1;
@@ -24,14 +27,14 @@ class Solution {
 
             }
             else if(sum >k){
-                // too big to move the end pointer;
+                // too big to, move the end pointer;
 
                 j--;
 
             }
             else {
 
-                // too smaal , move  the start pointer ;
+                // too small , move  the start pointer ;
                 i++;
 
             }
